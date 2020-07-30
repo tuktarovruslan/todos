@@ -1,0 +1,36 @@
+.pagechange-enter-active, .pagechange-leave-active {
+  transition: opacity .3s;
+}
+
+.pagechange-enter, .pagechange-leave-to {
+  opacity: 0;
+}
+
+.fading-enter-active {
+  animation: fading-in 0.15s;
+}
+
+.fading-leave-active {
+  animation: fading-out 0.15s;
+}
+
+@keyframes fading-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fading-out {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

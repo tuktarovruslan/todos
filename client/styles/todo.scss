@@ -1,0 +1,70 @@
+@import 'common';
+
+.save {
+  width: 25px;
+  height: 25px;
+  fill: $comments;
+  transition: 0.2s;
+}
+
+.save:hover {
+  fill: $logo;
+}
+
+.escape {
+  width: 22px;
+  height: 25px;
+  fill: $comments;
+  transition: 0.2s;
+}
+
+.escape:hover {
+  fill: $logo;
+}
+
+.remove {
+  width: 25px;
+  height: 25px;
+  fill: $loss;
+  transition: 0.2s;
+}
+
+.remove:hover {
+  fill: $lossclk;
+}
+
+.cancel, .retry {
+  width: 25px;
+  height: 25px;
+  fill: $comments;
+  transition: 0.2s;
+}
+
+.cancel:hover, .retry:hover {
+  fill: $logo;
+}
+
+.format {
+
+  .title {
+    width: 500px;
+  }
+
+  .tasks {
+
+    .task {
+      width: 400px;
+    }
+
+    .plus {
+      width: 25px;
+      height: 25px;
+      fill: $comments;
+      // transition: 0.3s;
+    }
+
+    .plus:hover {
+      fill: $logo;
+    }
+  }
+}

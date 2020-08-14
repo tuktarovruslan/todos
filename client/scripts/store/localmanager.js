@@ -1,19 +1,19 @@
-export const tokenLocalGetter = () => {
-  return localStorage.getItem('token');
+export const todosLocalGetter = () => {
+  return JSON.parse(localStorage.getItem('todos') || '[]');
 };
 
-export const tokenLocalSetter = (token) => {
-  return localStorage.setItem('token', token);
+export const stashesLocalGetter = () => {
+  return JSON.parse(localStorage.getItem('stashes') || '[]');
 };
 
-export const tokenLocalRemover = () => {
-  return localStorage.removeItem('token');
+export const todosLocalSetter = (todos) => {
+  return localStorage.setItem('todos', JSON.stringify(todos));
 };
 
-export const mailMomentLocalGetter = () => {
-  return localStorage.getItem('mailMoment');
+export const stashesLocalSetter = (stashes) => {
+  return localStorage.setItem('stashes', JSON.stringify(stashes));
 };
 
-export const mailMomentLocalSetter = (time) => {
-  return localStorage.setItem('mailMoment', time);
-};
+// export const todosLocalRemover = (id) => {
+//   return localStorage.removeItem('todos.id');
+// };

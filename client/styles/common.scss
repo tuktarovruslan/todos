@@ -1,94 +1,11 @@
 @import 'fonts';
 
-@mixin fnt-ultimate56b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 56px;
-    line-height: 60px;
-}
-
-@mixin fnt-macro56 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 56px;
-    line-height: 60px;
-}
-
-@mixin fnt-macro48 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 50px;
-}
-
-@mixin fnt-macro36 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 46px;
-}
-
-@mixin fnt-heading36b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 36px;
-}
-
-@mixin fnt-heading28b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 24px;
-}
-
-@mixin fnt-heading22b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 33px;
-}
-
 @mixin fnt-largetext22 {
     font-family: GothamPro;
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
     line-height: 30px;
-}
-
-@mixin fnt-quotes21 {
-    font-family: GothamPro-Italic;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    line-height: 30px;
-    letter-spacing: -0.2px;
-}
-
-@mixin fnt-largetext20 {
-    font-family: GothamPro, GothamProR-Regular;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 30px;
-}
-
-@mixin fnt-text18b {
-    font-family: GothamPro-Bold, GothamProR-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 16px;
-    letter-spacing: -0.2px;
-    text-transform: uppercase;
 }
 
 @mixin fnt-pagetext18 {
@@ -115,24 +32,6 @@
     line-height: 24px;
 }
 
-@mixin fnt-remtext16 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.5px;
-}
-
-@mixin fnt-menu14 {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.5px;
-}
-
 @mixin fnt-simpletext14 {
     font-family: GothamPro;
     font-style: normal;
@@ -141,225 +40,24 @@
     line-height: 21px;
 }
 
-@mixin fnt-tip14b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    letter-spacing: -0.3px;
-    text-transform: uppercase;
-}
-
-@mixin fnt-tip12b {
-    font-family: GothamPro-Bold;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.3px;
-    text-transform: uppercase;
-}
-
-@mixin fnt-tip12 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
-}
-
-@mixin fnt-micro10 {
-    font-family: GothamPro;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 10px;
-}
-
 $logo: #1D4BCC;
 $logoclk: #1D3BCC;
-$headbar: #24292E;
 $barspacedark: #F8F8FA;
 $barspace: #FAFBFC;
 $baredge: #DADFE7;
 $workspace: #FFFFFF;
-$barlightmark: #14C5FF;
 $barhighlight: #EDF5FB;
-$graph: #5D016D;
 $loss: #FF0843;
 $lossclk: #df0034;
-$profit: #22C588;
-$emerald: #00A896;
 $strongtext: #505050;
 $textcolor: #79797F;
 $comments: #BFBFBF;
 $textlight: #078CFF;
 $textlightclk: #077CFF;
-$tidia1: #4DC3F7;
-$tidia2: #FF8863;
-$tidia3: #4BD0E1;
-$tidia4: #8F75D1;
-$tidia5: #FFD450;
-$tidia6: #4DA197;
-$tidia7: #65A7E0;
-$tidia8: #F8A34D;
 
-$tophorizedge: 0px -1px 0px rgba(191, 191, 191, 0.7);
-$lowhorizedge: 0px 1px 0px rgba(191, 191, 191, 0.7);
-$thinshadow: 0px 1px 1px rgba(218, 223, 231, 0.7);
 $headshadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 $plateshadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
-$strongplate: 0px 20px 40px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.2);
-$airplate: 0px 0px 40px rgba(0, 0, 0, 0.07), 0px 0px 1px rgba(0, 0, 0, 0.2);
 $windowshadow: 0px 5px 10px rgba(0, 0, 0, 0.12), 0px 0px 1px rgba(0, 0, 0, 0.2);
-$buttonshadow: 0px 1px 5px rgba(0, 0, 0, 0.28);
-$tipshadow: 0px -1px 16px rgba(0, 0, 0, 0.1), 0px 0px 1px rgba(0, 0, 0, 0.2);
-$tinyshadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-@mixin clr-logo {
-    color: $logo;
-}
-
-@mixin clr-logoclk {
-    color: $logoclk;
-}
-
-@mixin clr-headbar {
-    color: $headbar;
-}
-
-@mixin clr-barspacedark {
-    color: $barspacedark;
-}
-
-@mixin clr-barspace {
-    color: $barspace;
-}
-
-@mixin clr-baredge {
-    color: $baredge;
-}
-
-@mixin clr-workspace {
-    color: $workspace;
-}
-
-@mixin clr-barlightmark {
-    color: $barlightmark;
-}
-
-@mixin clr-barhighlight {
-    color: $barhighlight;
-}
-
-@mixin clr-graph {
-    color: $graph;
-}
-
-@mixin clr-loss {
-    color: $loss;
-}
-
-@mixin clr-profit {
-    color: $profit;
-}
-
-@mixin clr-emerald {
-    color: $emerald;
-}
-
-@mixin clr-strongtext {
-    color: $strongtext;
-}
-
-@mixin clr-textcolor {
-    color: $textcolor;
-}
-
-@mixin clr-comments {
-    color: $comments;
-}
-
-@mixin clr-textlight {
-    color: $textlight;
-}
-
-@mixin clr-textlightclk {
-    color: $textlightclk;
-}
-
-@mixin clr-tidia1 {
-    color: $tidia1;
-}
-
-@mixin clr-tidia2 {
-    color: $tidia2;
-}
-
-@mixin clr-tidia3 {
-    color: $tidia3;
-}
-
-@mixin clr-tidia4 {
-    color: $tidia4;
-}
-
-@mixin clr-tidia5 {
-    color: $tidia5;
-}
-
-@mixin clr-tidia6 {
-    color: $tidia6;
-}
-
-@mixin clr-tidia7 {
-    color: $tidia7;
-}
-
-@mixin clr-tidia8 {
-    color: $tidia8;
-}
-
-@mixin shdw-tophorizedge {
-    box-shadow: $tophorizedge;
-}
-
-@mixin shdw-lowhorizedge {
-    box-shadow: $lowhorizedge;
-}
-
-@mixin shdw-thinshadow {
-    box-shadow: $thinshadow;
-}
-
-@mixin shdw-headshadow {
-    box-shadow: $headshadow;
-}
-
-@mixin shdw-plateshadow {
-    box-shadow: $plateshadow;
-}
-
-@mixin shdw-strongplate {
-    box-shadow: $strongplate;
-}
-
-@mixin shdw-airplate {
-    box-shadow: $airplate;
-}
-
-@mixin shdw-windowshadow {
-    box-shadow: $windowshadow;
-}
-
-@mixin shdw-buttonshadow {
-    box-shadow: $buttonshadow;
-}
-
-@mixin shdw-tipshadow {
-    box-shadow: $tipshadow;
-}
 
 @mixin positioner($direction, $mainaxis, $subaxis, $wrapping: nowrap) {
     display: flex;
@@ -389,18 +87,14 @@ $tinyshadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     align-content: $yalign;
 }
 
+@mixin gcixy($xalign, $yalign: none) {
+    justify-items: $xalign;
+    align-items: $yalign;
+}
+
 @mixin gexy($xalign, $yalign: none) {
     justify-self: $xalign;
     align-self: $yalign;
-}
-
-@mixin pointlight {
-    cursor: pointer;
-    color: $textlight;
-}
-
-@mixin hyptransition {
-    transition: 0.2s;
 }
 
 * {
@@ -412,19 +106,4 @@ $tinyshadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
 body, html {
     min-height: 100%;
-    height: 100%;
-}
-
-.row {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.column {
-    display: flex;
-    flex-flow: column nowrap;
-}
-
-.mt50 {
-    margin-top: 50px;
 }

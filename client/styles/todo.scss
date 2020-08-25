@@ -1,66 +1,113 @@
 @import 'common';
 
-.save {
-  width: 25px;
-  height: 25px;
-  fill: $comments;
-  transition: 0.2s;
-}
+.todo {
+  @include positioner(column, flex-start, stretch);
+  background: $workspace;
+  height: 100%;
 
-.save:hover {
-  fill: $logo;
-}
+  .functions {
+    @include positioner(row, space-between, center);
+    @include narrower(600px, 40px);
+    margin: 100px auto 30px;
 
-.escape {
-  width: 22px;
-  height: 25px;
-  fill: $comments;
-  transition: 0.2s;
-}
+    .procedure {
+      @include fnt-largetext22;
+      color: $strongtext;
+    }
 
-.escape:hover {
-  fill: $logo;
-}
+    .icons {
+      @include grid(repeat(5, auto), 1fr);
+      @include gcxy(flex-start, center);
+      gap: 10px;
 
-.remove {
-  width: 25px;
-  height: 25px;
-  fill: $loss;
-  transition: 0.2s;
-}
-
-.remove:hover {
-  fill: $lossclk;
-}
-
-.cancel, .retry {
-  width: 25px;
-  height: 25px;
-  fill: $comments;
-  transition: 0.2s;
-}
-
-.cancel:hover, .retry:hover {
-  fill: $logo;
-}
-
-.format {
-
-  .title {
-    width: 500px;
+      .save {
+        @include gexy(center, center);
+        width: 25px;
+        height: 25px;
+        fill: $comments;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      
+      .save:hover {
+        fill: $logo;
+      }
+      
+      .escape {
+        @include gexy(center, center);
+        width: 22px;
+        height: 25px;
+        fill: $comments;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      
+      .escape:hover {
+        fill: $logo;
+      }
+      
+      .remove {
+        @include gexy(center, center);
+        width: 25px;
+        height: 25px;
+        fill: $loss;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      
+      .remove:hover {
+        fill: $lossclk;
+      }
+      
+      .cancel, .retry {
+        @include gexy(center, center);
+        width: 25px;
+        height: 25px;
+        fill: $comments;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      
+      .cancel:hover, .retry:hover {
+        fill: $logo;
+      }
+    }
   }
 
-  .tasks {
+  .format {
+    @include positioner(column, space-between, stretch);
+  
+    .title {
+      @include fnt-pagetext18;
+      @include narrower(600px, 40px);
+      color: $strongtext;
+      margin-bottom: 10px;
+    }
+    
+    .narrow {
+      @include narrower(600px, 40px);
+      margin-bottom: 30px;
+    }
 
-    .task {
-      width: 400px;
+    .tasks {
+      @include fnt-pagetext18;
+      @include narrower(600px, 40px);
+      color: $strongtext;
+    }
+
+    .taskgroup {
+      @include narrower(600px, 40px);
+      position: relative;
+
+      .task {
+        width: 600px;
+      }
     }
 
     .plus {
       width: 25px;
       height: 25px;
       fill: $comments;
-      // transition: 0.3s;
     }
 
     .plus:hover {

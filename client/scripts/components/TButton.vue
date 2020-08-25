@@ -51,7 +51,7 @@ export default Vue.extend({
 
   .btnname {
     @include fnt-text16b;
-    @include clr-textlight;
+    color: $textlight;
     text-decoration: none;
     padding: 0px 22px 1px;
     transition: 0.2s;
@@ -62,7 +62,7 @@ export default Vue.extend({
   background-color: $textlight;
 
   .btnname {
-    @include clr-workspace;
+    color: $workspace;
   }
 }
 
@@ -92,7 +92,7 @@ export default Vue.extend({
   background-color: $textlight;
 
   .btnname {
-    @include clr-workspace;
+    color: $workspace;
   }
 }
 
@@ -111,7 +111,7 @@ export default Vue.extend({
   cursor: default;
 
   .btnname {
-    @include clr-workspace;
+    color: $workspace;
   }
 }
 

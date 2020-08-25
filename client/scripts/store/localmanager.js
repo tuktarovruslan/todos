@@ -2,18 +2,14 @@ export const todosLocalGetter = () => {
   return JSON.parse(localStorage.getItem('todos') || '[]');
 };
 
-export const stashesLocalGetter = () => {
-  return JSON.parse(localStorage.getItem('stashes') || '[]');
+export const stashLocalGetter = () => {
+  return JSON.parse(localStorage.getItem('stash') || '[]');
 };
 
 export const todosLocalSetter = (todos) => {
   return localStorage.setItem('todos', JSON.stringify(todos));
 };
 
-export const stashesLocalSetter = (stashes) => {
-  return localStorage.setItem('stashes', JSON.stringify(stashes));
+export const stashLocalSetter = (stash) => {
+  return localStorage.setItem('stash', JSON.stringify(stash));
 };
-
-// export const todosLocalRemover = (id) => {
-//   return localStorage.removeItem('todos.id');
-// };

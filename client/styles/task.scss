@@ -1,41 +1,61 @@
 @import 'common';
 
 .container {
-  margin: 10px;
+  @include grid(auto 1fr auto auto, 1fr);
+  @include gcxy(flex-start, center);
+  gap: 10px;
   padding: 10px 15px;
-  width: 300px;
   border-radius: 5px;
   background: $barspacedark;
 
-  .title {
-    @include fnt-pagetext16;
+  .mid {
+    @include gexy(center, center);
+    padding-right: 5px;
   }
 
-  .content {
-    .done {
-      text-decoration: line-through;
-    }
+  .text-container {
+    position: relative;
+    height: 35px;
+    overflow: hidden;
 
-    .edit {
-      width: 25px;
-      height: 25px;
-      fill: $textcolor;
-      transition: 0.2s;
+    .pos {
+      position: absolute;
+      width: 100%;
+  
+      .text {
+        @include fnt-pagetext16;
+        color: $strongtext;
+        padding: 6px 11px;
+        overflow: hidden;
+      }
     }
+  }
 
-    .edit:hover {
-      fill: $logo;
-    }
+  .done {
+    text-decoration: line-through;
+  }
 
-    .remove {
-      width: 25px;
-      height: 25px;
-      fill: $loss;
-      transition: 0.2s;
-    }
+  .edit {
+    @include gexy(center, center);
+    width: 25px;
+    height: 25px;
+    fill: $textcolor;
+    transition: 0.2s;
+  }
 
-    .remove:hover {
-      fill: $lossclk;
-    }
+  .edit:hover {
+    fill: $logo;
+  }
+
+  .remove {
+    @include gexy(center, center);
+    width: 25px;
+    height: 25px;
+    fill: $loss;
+    transition: 0.2s;
+  }
+
+  .remove:hover {
+    fill: $lossclk;
   }
 }

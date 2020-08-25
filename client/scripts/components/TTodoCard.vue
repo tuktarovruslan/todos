@@ -1,18 +1,22 @@
 <template lang="pug">
-.container
-  .title {{todo.title}}
+.todocard
+  .cardhead
+    .title {{todo.title}}
+    .icons
+      svg.edit(@click="edit(todo)")
+        use(xlink:href='/images/icon/edit.svg#edit')
+      svg.remove(@click="modalRmVisible = true")
+        use(xlink:href='/images/icon/remove.svg#remove')
+      transition(name="modal")
+        t-modal(v-if="modalRmVisible"
+          modalTitle="Удаление заметки"
+          @closeAction="modalRmVisible = false"
+          @okBtnAction="removeTodo(todo)")
+          p Вы уверены, что хотите удалить заметку?
   .content
-    span {{todo.id}}
-    svg.edit(@click="edit(todo)")
-      use(xlink:href='/images/icon/edit.svg#edit')
-    svg.remove(@click="modalRmVisible = true")
-      use(xlink:href='/images/icon/remove.svg#remove')
-    transition(name="modal")
-      t-modal(v-if="modalRmVisible"
-        modalTitle="Удаление заметки"
-        @closeAction="modalRmVisible = false"
-        @okBtnAction="removeTodo(todo)")
-        p Вы уверены, что хотите удалить заметку?
+    t-task-card.taskcard(v-for="task in todo.tasks"
+        :task="task"
+        :key="task.id")
 
 </template>
 
@@ -21,6 +25,7 @@ import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
 
 import TModal from '@vuecomps/TModal';
+import TTaskCard from '@vuecomps/TTaskCard';
 
 const edit = function(todo) {
   const tdnum = this.todos.indexOf(todo) + 1;
@@ -55,6 +60,7 @@ export default Vue.extend({
   },
   components: {
     TModal,
+    TTaskCard,
   },
 });
 </script>

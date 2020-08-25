@@ -1,41 +1,64 @@
 @import 'common';
 
-.container {
-  margin: 10px;
-  padding: 10px 15px;
-  width: 300px;
+.todocard {
   border-radius: 5px;
   background: $barspacedark;
+  box-shadow: $windowshadow;
+  overflow: hidden;
 
-  .title {
-    @include fnt-pagetext16;
+  .cardhead {
+    @include positioner(row, space-between, center);
+    padding: 20px 25px;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: $headshadow;
+
+    .title {
+      @include fnt-largetext22;
+      color: $strongtext;
+      overflow: hidden;
+    }
+    
+    .icons {
+      @include grid(repeat(2, auto), 1fr);
+      @include gcxy(flex-start, center);
+      gap: 10px;
+    
+      .edit {
+        width: 25px;
+        height: 25px;
+        fill: $textcolor;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+    
+      .edit:hover {
+        fill: $logo;
+      }
+    
+      .remove {
+        width: 25px;
+        height: 25px;
+        fill: $loss;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+    
+      .remove:hover {
+        fill: $lossclk;
+      }
+    }
   }
 
   .content {
-    .done {
-      text-decoration: line-through;
+    padding: 0px 25px;
+    
+    .taskcard {
+      padding: 10px 0px;
+      border-bottom: 1px solid $baredge;
     }
 
-    .edit {
-      width: 25px;
-      height: 25px;
-      fill: $textcolor;
-      transition: 0.2s;
-    }
-
-    .edit:hover {
-      fill: $logo;
-    }
-
-    .remove {
-      width: 25px;
-      height: 25px;
-      fill: $loss;
-      transition: 0.2s;
-    }
-
-    .remove:hover {
-      fill: $lossclk;
+    .taskcard:last-child {
+      border-bottom: none;
     }
   }
 }

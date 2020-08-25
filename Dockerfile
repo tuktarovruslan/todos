@@ -1,6 +1,6 @@
 # ---- Base Node ----
 FROM node:10.17.0-alpine3.10 AS base
-WORKDIR /sphere
+WORKDIR /todos
 COPY package*.json ./
 
 # ---- Prod-dependencies ----
@@ -24,8 +24,8 @@ FROM base AS release
 # Копирует файлы приложения из корневой директории
 COPY . ./
 # Копирует чистые prod-модули
-COPY --from=dependencies /sphere/prod_node_modules ./node_modules
-COPY --from=build /sphere/prod_scripts ./static/scripts
+COPY --from=dependencies /todos/prod_node_modules ./node_modules
+COPY --from=build /todos/prod_scripts ./static/scripts
 
 EXPOSE 8000
 

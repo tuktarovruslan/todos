@@ -1,55 +1,26 @@
 <template lang="pug">
 .input-block(:class="classes")
-  .inp-block-box
-    .inp-block-fname
-      slot
-    .inp-block-notice(ref="drib") {{notification}}
   .input-field
-    input(:type="type"
+    input(ref="focusInput"
+      :type="type"
       :value="value"
       :placeholder="placeholder"
       :maxlength="maxlength"
       @focus="$emit('focus', $event)"
+      @blur="$emit('blur', $event)"
       @change="$emit('change', $event)"
       @input="$emit('input', $event)")
 </template>
 
 <script>
 import Vue from 'vue';
-import anime from 'animejs';
-
-function dribble(obj) {
-  const dribble = anime.timeline({
-    targets: obj,
-    direction: 'normal',
-    easing: 'easeInOutBounce'
-  });
-
-  dribble
-  .add({
-    translateX: -30,
-    duration: 60,
-  })
-  .add({
-    translateX: 0,
-    duration: 60,
-  },'+=60');
-};
-
-function fuckup() {
-  const obj = this.$refs.drib;
-  if (this.fuckups === 1) { return };
-  dribble(obj);
-};
 
 const props = {
   type: { type: String, default: 'text'},
   value: { type: String, default: ''},
   placeholder: { type: String, default: ''},
   maxlength: { type: String, default: ''},
-  notification: { type: String, default: ''},
   invalid: { type: Boolean, default: false },
-  fuckups: { type: Number, default: 0 }
 };
 
 const classes = function() {
@@ -58,24 +29,22 @@ const classes = function() {
   };
 };
 
+const setFocus = function(vm) {
+  if (vm.value == '') {
+    vm.$refs.focusInput.focus();
+  }
+}
+
 export default Vue.extend({
   name: 'TInput',
-  data() {
-    return {
-
-    };
-  },
   props,
   computed: { classes },
   methods: {
-
+    setFocus,
   },
-  watch: {
-    fuckups: fuckup,
+  mounted() {
+    setFocus(this)
   },
-  components: {
-
-  }
 });
 </script>
 
@@ -84,52 +53,33 @@ export default Vue.extend({
 
 .input-block {
 
-  .inp-block-box {
-    @include positioner(row, space-between, center);
-
-    .inp-block-fname {
-      @include fnt-pagetext18;
-      @include clr-headbar;
-      padding: 10px 0;
-    }
-
-    .inp-block-notice {
-      @include fnt-pagetext18;
-      @include clr-loss;
-      opacity: 0;
-      cursor: default;
-      padding: 1px 0;
-      transition: 0.5s;
-    }
-  }
-
   .input-field {
     @include positioner(row, stretch, center);
     position: relative;
 
     input {
-      @include fnt-pagetext18;
-      @include clr-strongtext;
-      @include hyptransition;
+      @include fnt-pagetext16;
+      color: $strongtext;
+      transition: 0.2s;
       flex: 1 1 170px;
-      height: 52px;
+      height: 35px;
       width: 100%;
-      padding: 0px 18px 1px 18px;
+      padding: 0px 10px;
       background-color: $barspace;
       border-radius: 5px;
-      border: 2px solid $baredge;
+      border: 1px solid $baredge;
       outline: none;
     }
       
     input:focus {
-      @include hyptransition;
+      transition: 0.2s;
       background-color: $barhighlight;
-      border: 2px solid $textlight;
+      border: 1px solid $textlight;
     }
 
     input::placeholder {
       @include fnt-pagetext16;
-      @include clr-comments;
+      color: $comments;
       transition: 0.5s;
     }
   }
@@ -137,29 +87,22 @@ export default Vue.extend({
 
 .input-block.invalid {
 
-  .inp-block-notice {
-    @include fnt-simpletext14;
-    @include clr-loss;
-    opacity: 1;
-    transition: 0.5s;
-  }
-
   input {
-    @include clr-strongtext;
-    @include hyptransition;
+    color: $strongtext;
+    transition: 0.2s;
     background-color: rgba(255, 8, 67, 0.05) !important;
-    border: 2px solid rgba(255, 8, 67, 0.2);
+    border: 1px solid rgba(255, 8, 67, 0.2);
     outline: none;
   }
       
   input:focus {
-    @include hyptransition;
+    transition: 0.2s;
     background-color: rgba(255, 8, 67, 0.05);
-    border: 2px solid rgba(255, 8, 67, 0.2);
+    border: 1px solid rgba(255, 8, 67, 0.2);
   }
 
   input::placeholder {
-    @include clr-loss;
+    color: $loss;
   }
 }
 </style>

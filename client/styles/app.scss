@@ -6,8 +6,18 @@
   opacity: 0;
 }
 
+.tasklist-item:first-child {
+  margin: 10px 0px;
+}
 .tasklist-item {
+  margin: 10px 0px;
   transition: transform 0.5s, opacity 0.3s, fill 0.3s;
+}
+.tasklist-item:last-child {
+  margin: 10px auto;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
 }
 
 .tasklist-enter, .tasklist-leave-to {
@@ -18,6 +28,7 @@
 .tasklist-leave-active {
   // Отвечает за плавное смещение при удалении
   position: absolute;
+  margin: 0;
 }
 
 .modal-enter-active {

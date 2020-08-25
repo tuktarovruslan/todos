@@ -1,0 +1,11 @@
+@import 'common';
+  
+.text {
+  @include fnt-pagetext16;
+  color: $strongtext;
+  overflow: hidden;
+}
+
+.done {
+  text-decoration: line-through;
+}

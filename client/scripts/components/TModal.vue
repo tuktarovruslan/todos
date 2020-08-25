@@ -6,8 +6,8 @@
     .m-content
       slot
     .m-footer
-      t-button(fill @click="closeAction") Отменить
       t-button(fill @click="okBtnAction") {{ okBtnTitle }}
+      t-button(fill @click="closeAction") Отменить
 </template>
 
 <script>
@@ -23,10 +23,10 @@ const okBtnAction = function() {
   return this.$emit('okBtnAction');
 }
 
-const setupEventHandlers = function(vm) {
+const setupEventHandlers = function() {
   const outsideClickHandler = (event) => {
-    if (event.target === vm.$refs.outside) {
-      vm.$emit('closeAction')
+    if (event.target === this.$refs.outside) {
+      this.$emit('closeAction')
     }
   };
 
@@ -40,11 +40,6 @@ const props = {
 
 export default Vue.extend({
   name: 'TModal',
-  data() {
-    return {
-
-    };
-  },
   props,
   methods: {
     closeAction,
@@ -52,7 +47,7 @@ export default Vue.extend({
     setupEventHandlers,
   },
   mounted() {
-    setupEventHandlers(this)
+    this.setupEventHandlers();
   },
   components: {
     TButton,
@@ -65,7 +60,7 @@ export default Vue.extend({
 
 .modal-space {
   @include positioner(row, center, center);
-  position: absolute;
+  position: fixed;
   background: rgba(64, 64, 64, 0.4);
   right: 0;
   left: 0;
@@ -74,25 +69,40 @@ export default Vue.extend({
   z-index: 100;
 
   .modal-window {
-    position: fixed;
-    width: 400px;
-    padding: 20px;
-    background: red;
-    
+    flex: 0 1 400px;
+    border-radius: 5px;
+    background: $barspace;
+    box-shadow: $windowshadow;
     
     .m-header {
       @include positioner(row, space-between, center);
+      padding: 20px 30px;
+      border-radius: 5px 5px 0px 0px;
+      background: $barspacedark;
+      box-shadow: $headshadow;
+
+      span {
+        @include fnt-text16b;
+        color: $strongtext;
+      }
     }
   
     .m-content {
       @include positioner(row, center, center);
+      padding: 25px 30px 0px;
+
+      p {
+        @include fnt-pagetext16;
+        color: $strongtext;
+      }
     }
   
-    .m-header {
-      @include positioner(row, space-between, center);
+    .m-footer {
+      @include grid(repeat(2, auto), 1fr);
+      @include gcxy(center);
+      gap: 40px;
+      padding: 40px 30px 40px;
     }
   }
 }
-
-
 </style>

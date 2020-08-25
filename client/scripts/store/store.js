@@ -5,8 +5,8 @@ import Vuex from 'vuex';
 import {
   todosLocalGetter,
   todosLocalSetter,
-  stashesLocalGetter,
-  stashesLocalSetter,
+  stashLocalGetter,
+  stashLocalSetter,
 } from '@store/localmanager';
 
 Vue.use(Vuex);
@@ -15,7 +15,7 @@ export default new Vuex.Store({
   state() {
     return {
       todos: todosLocalGetter(),
-      stashes: stashesLocalGetter(),
+      stash: stashLocalGetter(),
     };
   },
   getters : {
@@ -36,17 +36,12 @@ export default new Vuex.Store({
       todosLocalSetter(state.todos);
     },
     createStash(state, stash) {
-      state.stashes.push(stash);
-      stashesLocalSetter(state.stashes);
+      state.stash = stash;
+      stashLocalSetter(state.stash);
     },
-    updateStash(state, stash) {
-      const position = state.todos.findIndex(t => t.id === stash.id);
-      state.stashes[position] = stash;
-      stashesLocalSetter(state.stashes);
-    },
-    removeStash(state, id) {
-      state.stashes = state.stashes.filter(s => s.id !== id);
-      stashesLocalSetter(state.stashes);
+    removeStash(state) {
+      state.stash = null;
+      stashLocalSetter(state.stash);
     },
   },
   actions: {
@@ -56,17 +51,17 @@ export default new Vuex.Store({
     },
     updateTodo({commit}, todo) {
       commit('updateTodo', todo);
-      commit('updateStash', todo);
+      commit('createStash', todo);
     },
     removeTodo({commit}, id) {
       commit('removeTodo', id);
       commit('removeStash', id);
     },
-    updateStash({commit}, stash) {
-      commit('updateStash', stash)
+    createStash({commit}, stash) {
+      commit('createStash', stash)
     },
-    removeStash({commit}, id) {
-      commit('removeStash', id)
+    removeStash({commit}) {
+      commit('removeStash')
     }
   }
 });
